@@ -11,5 +11,6 @@ require("headlines").setup({
     codeblock_highlight = "CodeBlock",
     dash_highlight = "Dash",
     quote_highlight = "Quote",
+    fat_headlines = false,
   },
 })

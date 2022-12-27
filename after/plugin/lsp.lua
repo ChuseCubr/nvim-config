@@ -28,7 +28,7 @@ lsp.on_attach(function(client, bufnr)
   local fmt = function(cmd) return function(str) return cmd:format(str) end end
 
   local map = function(m, lhs, rhs)
-    local opts = {noremap = true, silent = true}
+    local opts = { noremap = true, silent = true }
     vim.api.nvim_buf_set_keymap(bufnr, m, lhs, rhs, opts)
   end
 
@@ -54,7 +54,7 @@ lsp.on_attach(function(client, bufnr)
   end
 end)
 
-lsp.configure('sumneko_lua',{
+lsp.configure('sumneko_lua', {
   settings = {
     Lua = {
       workspace = { checkThirdParty = false },

@@ -46,8 +46,12 @@ return {
     "SmiteshP/nvim-navic",
     dependencies = { "neovim/nvim-lspconfig" }
   },
+  "jose-elias-alvarez/null-ls.nvim",
 
   -- git
+  {
+    'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim'
+  },
   "tpope/vim-fugitive",
   "tpope/vim-rhubarb",
   "lewis6991/gitsigns.nvim",
@@ -62,5 +66,4 @@ return {
   { "numToStr/Comment.nvim", config = true },
   { "windwp/nvim-autopairs", config = true },
   { "j-hui/fidget.nvim", config = true },
-
 }

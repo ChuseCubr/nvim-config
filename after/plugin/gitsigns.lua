@@ -1,3 +1,4 @@
+-- taken from lunarvim
 require('gitsigns').setup {
   signs = {
     add = { text = '▎' },
