@@ -1,6 +1,6 @@
 # nvim-config
 
-My config completely remade and revamped Neovim dotfiles.
+My completely remade and revamped Neovim dotfiles.
 
 Stiched together bits and pieces I liked from:
 
