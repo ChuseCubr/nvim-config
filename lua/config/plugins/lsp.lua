@@ -18,7 +18,10 @@ local M = {
     "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets",
   },
-  event = "BufAdd",
+  event = {
+    "BufReadPre",
+    "BufNewFile",
+  },
 }
 
 function M.config()
