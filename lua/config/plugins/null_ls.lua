@@ -16,16 +16,16 @@ function M.config()
       vim.api.nvim_buf_set_keymap(bufnr, m, lhs, rhs, opts)
     end
 
-    local lsp_cmd = fmt('<cmd>lua vim.lsp.buf.%s<cr>')
-    map('n', 'K', lsp_cmd 'hover()')
-    map('n', '<F4>', lsp_cmd 'code_action()')
-    map('x', '<F4>', lsp_cmd 'range_code_action()')
-    map('n', '<leader>f', lsp_cmd 'format()')
+    local lsp_cmd = fmt("<cmd>lua vim.lsp.buf.%s<cr>")
+    map("n", "K", lsp_cmd "hover()")
+    map("n", "<F4>", lsp_cmd "code_action()")
+    map("x", "<F4>", lsp_cmd "range_code_action()")
+    map("n", "<leader>f", lsp_cmd "format()")
 
-    local diagnostic = fmt('<cmd>lua vim.diagnostic.%s<cr>')
-    map('n', 'gl', diagnostic 'open_float()')
-    map('n', '[d', diagnostic 'goto_prev()')
-    map('n', ']d', diagnostic 'goto_next()')
+    local diagnostic = fmt("<cmd>lua vim.diagnostic.%s<cr>")
+    map("n", "gl", diagnostic "open_float()")
+    map("n", "[d", diagnostic "goto_prev()")
+    map("n", "]d", diagnostic "goto_next()")
   end
 
   null_ls.setup({

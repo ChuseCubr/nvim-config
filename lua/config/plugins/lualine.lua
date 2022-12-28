@@ -3,10 +3,10 @@ return {
   config = {
     options = {
       icons_enabled = false,
-      theme = 'nord',
-      component_separators = '|',
-      section_separators = '',
+      theme = "nord",
+      component_separators = "|",
+      section_separators = "",
       globalstatus = true,
     },
-  }
+  },
 }
