@@ -1,6 +1,6 @@
 # nvim-config
 
-My config completely remade and revamped Neovim dotfiles.
+My completely remade and revamped Neovim dotfiles.
 
 Stiched together bits and pieces I liked from:
 
@@ -20,14 +20,14 @@ This sets up:
 
 - LSP with [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim)
   - some tweaks for lua configs, including [neodev](https://github.com/folke/neodev.nvim)
-  - installs null-ls (doesn't set up much though)
-- Treesitter
-- Telecope
+  - installs [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) (doesn't set up much though)
+- [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [Telecope](https://github.com/nvim-telescope/telescope.nvim)
 - Git integration
 - UI stuff
-  - Bufferline
-  - Lualine
-  - Navic
-  - Indent Blankline
+  - [Bufferline](https://github.com/akinsho/bufferline.nvim)
+  - [Lualine](https://github.com/nvim-lualine/lualine.nvim)
+  - [Navic](https://github.com/SmiteshP/nvim-navic)
+  - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
 - Markdown
   - [Headlines](https://github.com/lukas-reineke/headlines.nvim) and linting
