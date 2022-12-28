@@ -1,7 +1,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
+-- vim.keymap.set("n", "<leader>e", vim.cmd.Lex)
 
 -- move selection
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

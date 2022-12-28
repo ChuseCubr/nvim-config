@@ -1,4 +1,11 @@
 return {
+  -- file browser
+  {
+    'nvim-tree/nvim-tree.lua',
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = true,
+  },
+
   -- code context
   {
     "SmiteshP/nvim-navic",
