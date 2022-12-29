@@ -9,7 +9,18 @@ local M = {
 function M.config()
   require("nvim-treesitter.configs").setup({
     -- A list of parser names, or "all"
-    ensure_installed = { "c", "css", "javascript", "help", "html", "lua", "python", "rust", "vim" },
+    ensure_installed = {
+      "c",
+      "css",
+      "javascript",
+      "help",
+      "html",
+      "lua",
+      "markdown",
+      "python",
+      "rust",
+      "vim"
+    },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
@@ -32,7 +43,7 @@ function M.config()
     conext_commentstring = {
       enable = true
     },
-})
+  })
 end
 
 return M

@@ -16,4 +16,5 @@ return {
       fat_headlines = false,
     },
   },
+  ft = "markdown",
 }

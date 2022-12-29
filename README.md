@@ -30,4 +30,6 @@ This sets up:
   - [Navic](https://github.com/SmiteshP/nvim-navic)
   - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
 - Markdown
-  - [Headlines](https://github.com/lukas-reineke/headlines.nvim) and linting
+  - LSP
+  - [Preview](https://github.com/iamcco/markdown-preview.nvim)
+  - [Headlines](https://github.com/lukas-reineke/headlines.nvim)
