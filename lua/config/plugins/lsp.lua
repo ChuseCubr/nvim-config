@@ -36,6 +36,7 @@ function M.config()
     "sumneko_lua",
     "pyright",
     "rust_analyzer",
+    "clangd",
   })
 
   -- lsp.set_preferences({
@@ -69,6 +70,7 @@ function M.config()
     map("n", "<F2>", lsp_cmd("rename()"))
     map("n", "<F4>", lsp_cmd("code_action()"))
     map("x", "<F4>", lsp_cmd("range_code_action()"))
+    map("n", "<C-k>", lsp_cmd("buf.signature_help()"))
     map("n", "<leader>f", lsp_cmd("format()"))
 
     local diagnostic = fmt("<cmd>lua vim.diagnostic.%s<cr>")
