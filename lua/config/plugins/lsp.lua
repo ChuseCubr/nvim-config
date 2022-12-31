@@ -25,18 +25,24 @@ local M = {
 }
 
 function M.config()
-  local lsp = require("lsp-zero")
+  require("mason.settings").set({
+    ui = {
+      border = "rounded",
+    }
+  })
   local navic = require("nvim-navic")
   navic.setup({
     highlight = true,
   })
 
+  local lsp = require("lsp-zero")
   lsp.preset("recommended")
   lsp.ensure_installed({
     "sumneko_lua",
     "pyright",
     "rust_analyzer",
     "clangd",
+    "marksman",
   })
 
   -- lsp.set_preferences({
