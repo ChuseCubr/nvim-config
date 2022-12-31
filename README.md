@@ -11,6 +11,7 @@ Stiched together bits and pieces I liked from:
 ## Requirements
 
 - Neovim 0.8.0 or higher.
+- Node.js, npm, and yarn.
 
 No need to install Packer or a package manager. [lazy.nvim](https://github.com/folke/lazy.nvim) automatically installs itself.
 
