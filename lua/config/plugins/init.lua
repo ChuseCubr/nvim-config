@@ -1,21 +1,15 @@
 return {
   -- file browser
   {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = 'nvim-tree/nvim-web-devicons',
+    "nvim-tree/nvim-tree.lua",
+    dependencies = "nvim-tree/nvim-web-devicons",
     config = true,
   },
 
   -- code context
   {
     "SmiteshP/nvim-navic",
-    dependencies = { "neovim/nvim-lspconfig" },
-  },
-
-  -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    dependencies =  "neovim/nvim-lspconfig",
   },
 
   -- git
@@ -33,7 +27,7 @@ return {
     "iamcco/markdown-preview.nvim",
     build = "cd app && npm install",
     init = function() vim.g.mkdp_filetypes = { "markdown" } end,
-    ft = { "markdown" },
+    ft = "markdown",
   },
 
   -- others
