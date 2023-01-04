@@ -24,6 +24,7 @@ vim.opt.smartcase = true
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
+vim.opt.colorcolumn = "80"
 vim.opt.isfname:append("@-@")
 
 vim.o.completeopt = "menuone,noselect"
