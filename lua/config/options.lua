@@ -1,5 +1,6 @@
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.g.transparent_background = false
 
 vim.opt.number = true
 vim.opt.relativenumber = true

@@ -6,7 +6,7 @@ function M.config()
     local using_nord = vim.g.colors_name == "nord"
     local highlights = {}
 
-    if has_nord and using_nord then
+    if has_nord and using_nord and not vim.g.nord_disable_background then
       highlights = nord.bufferline.highlights({
         italic = true,
         bold = true,
@@ -27,6 +27,8 @@ function M.config()
     group = vim.api.nvim_create_augroup("BufferLineHighlights", { clear = true }),
     callback = setup_bufferline,
   })
+
+  setup_bufferline()
 end
 
 return M
