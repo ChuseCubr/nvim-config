@@ -79,6 +79,14 @@ function M.config()
     map("n", "<C-k>", lsp_cmd("buf.signature_help()"))
     map("n", "<leader>f", lsp_cmd("format()"))
 
+    if pcall(require, "telescope.builtin") then
+      local telescope_lsp = fmt("<cmd>lua require(\"telescope.builtin\").lsp_%s<cr>")
+      map("n", "gd", telescope_lsp("definitions()"))
+      map("n", "gi", telescope_lsp("implementations()"))
+      map("n", "go", telescope_lsp("type_definitions()"))
+      map("n", "gr", telescope_lsp("references()"))
+    end
+
     local diagnostic = fmt("<cmd>lua vim.diagnostic.%s<cr>")
     map("n", "gl", diagnostic("open_float()"))
     map("n", "[d", diagnostic("goto_prev()"))
