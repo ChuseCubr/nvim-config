@@ -22,6 +22,7 @@ local M = {
     "BufReadPre",
     "BufNewFile",
   },
+  cmd = "Mason",
 }
 
 function M.config()
@@ -43,6 +44,8 @@ function M.config()
     "rust_analyzer",
     "clangd",
     "marksman",
+    "html",
+    "tsserver",
   })
 
   -- lsp.set_preferences({
