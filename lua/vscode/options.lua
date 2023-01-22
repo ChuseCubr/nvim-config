@@ -1,5 +1,6 @@
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.g.transparent_background = false
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -44,3 +45,15 @@ vim.opt.listchars:append({
   extends  = "»",
   precedes = "«"
 })
+
+-- fix clipboard
+vim.g.clipboard = {
+  copy = {
+    ["+"] = "win32yank.exe -i --crlf",
+    ["*"] = "win32yank.exe -i --crlf",
+  },
+  paste = {
+    ["+"] = "win32yank.exe -o --lf",
+    ["*"] = "win32yank.exe -o --lf",
+  },
+}
