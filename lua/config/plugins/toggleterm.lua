@@ -7,11 +7,13 @@ local M = {
 }
 
 function M.config()
-  local shell
-  if vim.fn.has("unix") or vim.fn.has("macunix") then
-    shell = "/usr/bin/env bash"
+  local system_shell
+
+  if (vim.fn.has("unix") == 1
+      or vim.fn.has("macunix") == 1) then
+    system_shell = "/usr/bin/env bash"
   else
-    shell = "\"/Program Files/PowerShell/7/pwsh.exe\" -NoLogo"
+    system_shell = "\"/Program Files/PowerShell/7/pwsh.exe\" -NoLogo"
   end
 
   require("toggleterm").setup({
@@ -26,7 +28,7 @@ function M.config()
     float_opts = {
       border = "curved",
     },
-    shell = shell,
+    shell = system_shell,
   })
 
   vim.keymap.set(
