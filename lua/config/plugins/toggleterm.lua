@@ -2,6 +2,7 @@ local M = {
   "akinsho/toggleterm.nvim",
   cmd = "ToggleTerm",
   keys = {
+    "<c-\\>",
     "<leader>t"
   },
 }
@@ -25,6 +26,8 @@ function M.config()
       end
     end,
 
+    open_mapping = [[<c-\>]],
+    direction = "vertical",
     float_opts = {
       border = "curved",
     },
