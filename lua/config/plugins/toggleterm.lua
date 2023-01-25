@@ -14,7 +14,7 @@ function M.config()
       or vim.fn.has("macunix") == 1) then
     system_shell = "/usr/bin/env bash"
   else
-    system_shell = "\"/Program Files/PowerShell/7/pwsh.exe\" -NoLogo"
+    system_shell = "\"C:/Program Files/PowerShell/7/pwsh.exe\" -NoLogo"
   end
 
   require("toggleterm").setup({
