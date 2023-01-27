@@ -1,6 +1,9 @@
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-vim.g.transparent_background = false
+
+vim.opt.termguicolors = true
+vim.g.nord_version = "arcticicestudio"
+vim.g.transparent_background = true
 
 vim.opt.number = true
 vim.opt.relativenumber = true
