@@ -6,7 +6,7 @@ local M = {
 }
 
 function M.config()
-  require("telescope").setup()
+  require("telescope").setup({})
   -- taken from kickstart.nvim
   pcall(require("telescope").load_extension, "fzf")
 
