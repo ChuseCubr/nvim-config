@@ -1,9 +1,10 @@
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.guicursor = ""
 
 vim.opt.termguicolors = true
 vim.g.nord_version = "arcticicestudio"
-vim.g.transparent_background = true
+vim.g.transparent_background = false
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -37,7 +38,7 @@ vim.opt.showbreak = "↪"
 vim.opt.list = true
 vim.opt.listchars:append({
   -- New line
-  -- eol = "↲",
+  eol = "↲",
 
   -- Spaces
   trail = "⋅",
@@ -60,3 +61,10 @@ vim.g.clipboard = {
     ["*"] = "win32yank.exe -o --lf",
   },
 }
+
+-- python provider
+if (vim.fn.has("unix") == 1) then
+  vim.g.python3_host_prog = "$HOME/.config/nvim/venv/bin/python"
+else
+  vim.g.python3_host_prog = "$HOME/.config/nvim/venv/Scripts/python.exe"
+end

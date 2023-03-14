@@ -34,6 +34,4 @@ local function get_nord_opts(version)
   return versions[version]
 end
 
-local M = get_nord_opts(vim.g.nord_version)
-
-return M
+return get_nord_opts(vim.g.nord_version)

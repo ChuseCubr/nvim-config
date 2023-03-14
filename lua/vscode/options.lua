@@ -1,6 +1,5 @@
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-vim.g.transparent_background = false
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -34,7 +33,7 @@ vim.opt.showbreak = "↪"
 vim.opt.list = true
 vim.opt.listchars:append({
   -- New line
-  -- eol = "↲",
+  eol = "↲",
 
   -- Spaces
   trail = "⋅",

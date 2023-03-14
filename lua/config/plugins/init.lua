@@ -3,24 +3,11 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     dependencies = "nvim-tree/nvim-web-devicons",
-    config = true,
+    config = function ()
+      vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
+      require("nvim-tree").setup()
+    end,
   },
-
-  -- code context
-  {
-    "SmiteshP/nvim-navic",
-    dependencies =  "neovim/nvim-lspconfig",
-  },
-
-  -- git
-  {
-    "sindrets/diffview.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-    },
-  },
-  "tpope/vim-rhubarb",
 
   -- markdown
   {
@@ -32,8 +19,6 @@ return {
 
   -- others
   "tpope/vim-sleuth",
-  { "folke/neodev.nvim", config = true },
   { "numToStr/Comment.nvim", config = true },
   { "windwp/nvim-autopairs", config = true },
-  { "j-hui/fidget.nvim", config = true },
 }

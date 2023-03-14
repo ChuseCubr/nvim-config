@@ -1,8 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
--- vim.keymap.set("n", "<leader>e", vim.cmd.Lex)
+vim.keymap.set("n", "<leader>e", "<cmd>Ex<cr>")
 
 -- move selection
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -23,10 +22,9 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set("i", "<C-c>", "<Esc>")
-
+-- anti fat finger
 vim.keymap.set("n", "Q", "<nop>")
--- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 -- window navigation
 vim.keymap.set("n", "<M-h>", "<C-w>h")
@@ -34,23 +32,12 @@ vim.keymap.set("n", "<M-j>", "<C-w>j")
 vim.keymap.set("n", "<M-k>", "<C-w>k")
 vim.keymap.set("n", "<M-l>", "<C-w>l")
 
+-- -- jump list
 -- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 -- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 -- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 -- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
-vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-
 -- Remap for dealing with word wrap
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- highlight on yank
-local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
-vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = "*",
-})
