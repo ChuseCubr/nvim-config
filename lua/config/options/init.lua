@@ -10,12 +10,12 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 
 -- Enable mouse mode
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 
 -- Sync clipboard between OS and Neovim.
 --	Remove this option if you want your OS clipboard to remain independent.
 --	See `:help 'clipboard'`
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = "unnamedplus"
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -28,39 +28,39 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = "yes"
 
 -- Decrease update time
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = "menuone,noselect"
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
 vim.o.title = true
 vim.o.laststatus = 3
-vim.o.guicursor = 'n-v-c-i:block'
+vim.o.guicursor = "n-v-c-i:block"
 
-vim.o.colorcolumn = '80'
+vim.o.colorcolumn = "80"
 
-vim.o.showbreak = '↪'
+vim.o.showbreak = "↪"
 vim.o.list = true
 
 vim.opt.listchars:append({
 	-- New line
-	eol = '↲',
+	eol = "↲",
 
 	-- Spaces
-	trail = '⋅',
-	tab = '→ ',
-	nbsp = '␣',
+	trail = "⋅",
+	tab = "→ ",
+	nbsp = "␣",
 
 	-- Others
-	extends = '»',
-	precedes = '«',
+	extends = "»",
+	precedes = "«",
 })
 
 vim.o.expandtab = false
@@ -68,7 +68,7 @@ vim.o.shiftwidth = 2
 vim.o.tabstop = 2
 vim.o.scrolloff = 5
 
-vim.g.python3_host_prog = 'C:/Users/Chase/scoop/apps/python/current/python.exe'
+vim.g.python3_host_prog = "C:/Users/Chase/scoop/apps/python/current/python.exe"
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do

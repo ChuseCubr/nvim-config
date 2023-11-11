@@ -1,15 +1,15 @@
 return {
-	'Hoffs/omnisharp-extended-lsp.nvim',
+	"Hoffs/omnisharp-extended-lsp.nvim",
 	{
-		'nvim-treesitter/nvim-treesitter',
+		"nvim-treesitter/nvim-treesitter",
 		opts = function(_, opts)
 			opts = opts or {}
 			opts.ensure_installed = opts.ensure_installed or {}
-			table.insert(opts.ensure_installed, 'c_sharp')
+			table.insert(opts.ensure_installed, "c_sharp")
 		end,
 	},
 	{
-		'neovim/nvim-lspconfig',
+		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
 				omnisharp = {},
@@ -17,19 +17,19 @@ return {
 		},
 	},
 	{
-		'WhoIsSethDaniel/mason-tool-installer.nvim',
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		opts = function(_, opts)
 			opts = opts or {}
 			opts.ensure_installed = opts.ensure_installed or {}
-			table.insert(opts.ensure_installed, 'csharpier')
+			table.insert(opts.ensure_installed, "csharpier")
 		end,
 	},
 	{
-		'stevearc/conform.nvim',
+		"stevearc/conform.nvim",
 		opts = function(_, opts)
 			opts = opts or {}
 			opts.formatters_by_ft = opts.formatters_by_ft or {}
-			opts.formatters_by_ft.cs = { 'csharpier' }
-		end
+			opts.formatters_by_ft.cs = { "csharpier" }
+		end,
 	},
 }

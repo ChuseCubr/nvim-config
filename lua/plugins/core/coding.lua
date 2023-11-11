@@ -1,48 +1,50 @@
 return {
 	-- Better text objects
-	{ 'echasnovski/mini.ai', event = 'UIEnter', config = true },
+	{ "echasnovski/mini.ai", event = "UIEnter", config = true },
 
 	-- Commenter
 	{
-		'echasnovski/mini.comment',
+		"echasnovski/mini.comment",
 		config = true,
-		keys = { { 'gc', mode = { 'n', 'x' }, desc = 'Comment' } },
+		keys = { { "gc", mode = { "n", "x" }, desc = "Comment" } },
 	},
 
 	-- Code outline
 	{
-		'stevearc/aerial.nvim',
+		"stevearc/aerial.nvim",
 		config = true,
 		dependencies = {
-			'nvim-treesitter/nvim-treesitter',
-			'nvim-tree/nvim-web-devicons',
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
 		},
 		keys = {
-			'<leader>', '[', ']',
-			{ '<leader>co', '<cmd>AerialToggle!<cr>', desc = '[O]utline' },
-			{ '[s', '<cmd>AerialPrev<cr>', desc = 'Prev symbol' },
-			{ ']s', '<cmd>AerialNext<cr>', desc = 'Next symbol' },
+			"<leader>",
+			"[",
+			"]",
+			{ "<leader>co", "<cmd>AerialToggle!<cr>", desc = "[O]utline" },
+			{ "[s", "<cmd>AerialPrev<cr>", desc = "Prev symbol" },
+			{ "]s", "<cmd>AerialNext<cr>", desc = "Next symbol" },
 		},
 	},
 
 	-- Autocompletion
 	{
-		'hrsh7th/nvim-cmp',
+		"hrsh7th/nvim-cmp",
 		dependencies = {
 			-- Snippet Engine & its associated nvim-cmp source
-			'L3MON4D3/LuaSnip',
-			'saadparwaiz1/cmp_luasnip',
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
 
 			-- Adds LSP completion capabilities
-			'hrsh7th/cmp-nvim-lsp',
+			"hrsh7th/cmp-nvim-lsp",
 
 			-- Adds a number of user-friendly snippets
-			'rafamadriz/friendly-snippets',
+			"rafamadriz/friendly-snippets",
 		},
 		config = function()
-			local cmp = require('cmp')
-			local luasnip = require('luasnip')
-			require('luasnip.loaders.from_vscode').lazy_load()
+			local cmp = require("cmp")
+			local luasnip = require("luasnip")
+			require("luasnip.loaders.from_vscode").lazy_load()
 			luasnip.config.setup({})
 
 			---@diagnostic disable-next-line
@@ -53,16 +55,16 @@ return {
 					end,
 				},
 				mapping = cmp.mapping.preset.insert({
-					['<C-n>'] = cmp.mapping.select_next_item(),
-					['<C-p>'] = cmp.mapping.select_prev_item(),
-					['<C-d>'] = cmp.mapping.scroll_docs(-4),
-					['<C-f>'] = cmp.mapping.scroll_docs(4),
-					['<C-Space>'] = cmp.mapping.complete({}),
-					['<CR>'] = cmp.mapping.confirm({
+					["<C-n>"] = cmp.mapping.select_next_item(),
+					["<C-p>"] = cmp.mapping.select_prev_item(),
+					["<C-d>"] = cmp.mapping.scroll_docs(-4),
+					["<C-f>"] = cmp.mapping.scroll_docs(4),
+					["<C-Space>"] = cmp.mapping.complete({}),
+					["<CR>"] = cmp.mapping.confirm({
 						behavior = cmp.ConfirmBehavior.Replace,
 						select = true,
 					}),
-					['<Tab>'] = cmp.mapping(function(fallback)
+					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
 						elseif luasnip.expand_or_locally_jumpable() then
@@ -70,8 +72,8 @@ return {
 						else
 							fallback()
 						end
-					end, { 'i', 's' }),
-					['<S-Tab>'] = cmp.mapping(function(fallback)
+					end, { "i", "s" }),
+					["<S-Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_prev_item()
 						elseif luasnip.locally_jumpable(-1) then
@@ -79,11 +81,11 @@ return {
 						else
 							fallback()
 						end
-					end, { 'i', 's' }),
+					end, { "i", "s" }),
 				}),
 				sources = {
-					{ name = 'nvim_lsp' },
-					{ name = 'luasnip' },
+					{ name = "nvim_lsp" },
+					{ name = "luasnip" },
 				},
 			})
 		end,

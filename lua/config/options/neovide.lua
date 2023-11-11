@@ -1,1 +1,1 @@
-vim.o.guifont = 'FantasqueSansM Nerd Font Mono'
+vim.o.guifont = "FantasqueSansM Nerd Font Mono"
