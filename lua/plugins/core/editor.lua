@@ -97,33 +97,36 @@ return {
 				end
 			},
 		},
-		keys = {
-			'<leader>g', '<leader>s',
-			{ '<leader>sk', require('mini.extra').pickers.keymaps, desc = '[K]eymaps' },
-			{ '<leader><space>', require('mini.pick').builtin.buffers, desc = '[ ] Buffers' },
-			{ '<leader>/', require('mini.extra').pickers.buf_lines, desc = '[/] Search Here' },
-			{ '<leader>sf', require('mini.pick').builtin.files, desc = '[F]iles' },
-			{ '<leader>sh', require('mini.pick').builtin.help, desc = '[H]elp' },
-			{ '<leader>sw', function() require('mini.pick').builtin.grep({ pattern = vim.fn.expand('<cword>') }) end, desc = 'Current [W]ord' },
-			{ '<leader>sg', require('mini.pick').builtin.grep_live, desc = '[G]rep' },
-			{ '<leader>sd', require('mini.extra').pickers.diagnostic, desc = '[D]iagnostics' },
-			{ '<leader>sr', require('mini.pick').builtin.resume, desc = '[R]esume' },
-			{ '<leader>sc', require('mini.extra').pickers.hl_groups, desc = '[C]olors' },
-
-			{ '<leader>gf', require('mini.extra').pickers.git_files, desc = '[F]iles' },
-			{ '<leader>gc', require('mini.extra').pickers.git_commits, desc = '[C]ommits' },
-			{ '<leader>gh', require('mini.extra').pickers.git_hunks, desc = '[H]unks' },
-			{ '<leader>gb', require('mini.extra').pickers.git_branches, desc = '[B]ranches' },
-
-			{ 'gq', function() require('mini.extra').pickers.list({ scope = 'quickfix' }) end, desc = 'Quickfix' },
-			{ 'gl', function() require('mini.extra').pickers.list({ scope = 'location' }) end, desc = 'Location' },
-		},
+		keys = { '<leader>' },
 		opts = {
 			mappings = {
 				choose_marked = '<c-q>',
 			},
 		},
 		config = function(_, opts)
+			local builtin = require('mini.pick').builtin
+			local extra = require('mini.extra').pickers
+
+			vim.keymap.set('n', '<leader><space>', builtin.buffers, { desc = '[ ] Buffers' })
+			vim.keymap.set('n', '<leader>sf', builtin.files, { desc = '[F]iles' })
+			vim.keymap.set('n', '<leader>sh', builtin.help, { desc = '[H]elp' })
+			vim.keymap.set('n', '<leader>sw', function() builtin.grep({ pattern = vim.fn.expand('<cword>') }) end, { desc = 'Current [W]ord' })
+			vim.keymap.set('n', '<leader>sg', builtin.grep_live, { desc = '[G]rep' })
+			vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[R]esume' })
+
+			vim.keymap.set('n', '<leader>sk', extra.keymaps, { desc = '[K]eymaps' })
+			vim.keymap.set('n', '<leader>/', extra.buf_lines, { desc = '[/] Search Here' })
+			vim.keymap.set('n', '<leader>sd', extra.diagnostic, { desc = '[D]iagnostics' })
+			vim.keymap.set('n', '<leader>sc', extra.hl_groups, { desc = '[C]olors' })
+
+			vim.keymap.set('n', '<leader>gf', extra.git_files, { desc = '[F]iles' })
+			vim.keymap.set('n', '<leader>gc', extra.git_commits, { desc = '[C]ommits' })
+			vim.keymap.set('n', '<leader>gh', extra.git_hunks, { desc = '[H]unks' })
+			vim.keymap.set('n', '<leader>gb', extra.git_branches, { desc = '[B]ranches' })
+
+			vim.keymap.set('n', 'gq', function() extra.list({ scope = 'quickfix' }) end, { desc = 'Quickfix' })
+			vim.keymap.set('n', 'gl', function() extra.list({ scope = 'location' }) end, { desc = 'Location' })
+
 			vim.api.nvim_set_hl(0, 'MiniPickMatchCurrent', { link = 'Visual' })
 			vim.api.nvim_set_hl(0, 'MiniPickMatchMarked', { link = 'Cursor' })
 			require('mini.pick').setup(opts)
@@ -231,7 +234,7 @@ return {
 				untracked = { text = '▎' },
 			},
 			preview_config = { border = 'none' },
-			on_attach = function(bufnr)
+			on_attach = function(_)
 				local gs = package.loaded.gitsigns
 
 				local function map(mode, l, r, desc)
@@ -263,8 +266,6 @@ return {
 	-- lazygit integration
 	{
 		"kdheepak/lazygit.nvim",
-		-- optional for floating window border decoration
-		lazy = true,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},

@@ -1,19 +1,11 @@
 return {
-	{ 'Hoffs/omnisharp-extended-lsp.nvim', lazy = true },
+	'Hoffs/omnisharp-extended-lsp.nvim',
 	{
 		'nvim-treesitter/nvim-treesitter',
 		opts = function(_, opts)
 			opts = opts or {}
 			opts.ensure_installed = opts.ensure_installed or {}
-			vim.list_extend(opts.ensure_installed, { 'c_sharp' })
-		end,
-	},
-	{
-		'williamboman/mason.nvim',
-		opts = function(_, opts)
-			opts = opts or {}
-			opts.ensure_installed = opts.ensure_installed or {}
-			table.insert(opts.ensure_installed, 'csharpier')
+			table.insert(opts.ensure_installed, 'c_sharp')
 		end,
 	},
 	{
@@ -25,18 +17,19 @@ return {
 		},
 	},
 	{
+		'WhoIsSethDaniel/mason-tool-installer.nvim',
+		opts = function(_, opts)
+			opts = opts or {}
+			opts.ensure_installed = opts.ensure_installed or {}
+			table.insert(opts.ensure_installed, 'csharpier')
+		end,
+	},
+	{
 		'stevearc/conform.nvim',
-		optional = true,
-		opts = {
-			formatters_by_ft = {
-				cs = { 'csharpier' },
-			},
-			formatters = {
-				csharpier = {
-					command = 'dotnet-csharpier',
-					args = { '--write-stdout' },
-				},
-			},
-		},
+		opts = function(_, opts)
+			opts = opts or {}
+			opts.formatters_by_ft = opts.formatters_by_ft or {}
+			opts.formatters_by_ft.cs = { 'csharpier' }
+		end
 	},
 }
