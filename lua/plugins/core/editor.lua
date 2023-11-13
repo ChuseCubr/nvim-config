@@ -1,4 +1,7 @@
 return {
+	-- Automatic indent settings detection
+	{ "tpope/vim-sleuth", event = "UIEnter" },
+
 	-- File browser
 	{
 		"echasnovski/mini.files",
