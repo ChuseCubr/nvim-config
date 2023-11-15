@@ -1,15 +1,15 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- [[ Basic Keymaps ]]
-
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 -- Remap for dealing with word wrap
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Move selected block
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- center cursor
 vim.keymap.set("n", "J", "mzJ`z")
@@ -19,9 +19,9 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- void register
-vim.keymap.set("x", "<leader>p", '"_dP', { desc = "[P]aste from system" })
+vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP', { desc = "[P]aste from system" })
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "[y]ank to system" })
-vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "[Y]ank to system" })
+vim.keymap.set({ "n", "v" }, "<leader>Y", '"+Y', { desc = "[Y]ank to system" })
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "[D]elete (no yank)" })
 
 -- diagnostics
