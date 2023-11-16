@@ -1,6 +1,6 @@
 return {
 	-- Automatic indent settings detection
-	{ "tpope/vim-sleuth", event = "UIEnter" },
+	{ "tpope/vim-sleuth", event = { "VeryLazyFile" } },
 
 	-- File browser
 	{
@@ -119,6 +119,9 @@ return {
 			},
 		},
 		config = function(_, opts)
+			vim.ui.select = require("mini.pick").ui_select
+
+			-- keymaps here instead of `keys` for when required by another plugin
 			local builtin = require("mini.pick").builtin
 			local extra = require("mini.extra").pickers
 
@@ -231,7 +234,7 @@ return {
 	-- Adds git related signs to the gutter, as well as utilities for managing changes
 	{
 		"lewis6991/gitsigns.nvim",
-		event = "UIEnter",
+		event = { "VeryLazyFile" },
 		dependencies = {
 			{
 				"echasnovski/mini.clue",
@@ -298,6 +301,7 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
+		cmd = "LazyGit",
 		keys = {
 			{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "lazygit", silent = true },
 		},

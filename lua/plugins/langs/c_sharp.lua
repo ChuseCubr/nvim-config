@@ -2,6 +2,7 @@ return {
 	"Hoffs/omnisharp-extended-lsp.nvim",
 	{
 		"nvim-treesitter/nvim-treesitter",
+		optional = true,
 		opts = function(_, opts)
 			opts = opts or {}
 			opts.ensure_installed = opts.ensure_installed or {}
@@ -10,6 +11,7 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		optional = true,
 		opts = {
 			servers = {
 				omnisharp = {},
@@ -18,6 +20,7 @@ return {
 	},
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		optional = true,
 		opts = function(_, opts)
 			opts = opts or {}
 			opts.ensure_installed = opts.ensure_installed or {}
@@ -26,6 +29,7 @@ return {
 	},
 	{
 		"stevearc/conform.nvim",
+		optional = true,
 		opts = function(_, opts)
 			opts = opts or {}
 			opts.formatters_by_ft = opts.formatters_by_ft or {}

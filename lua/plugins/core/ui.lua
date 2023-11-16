@@ -1,7 +1,63 @@
 return {
+	-- Startup screen
+	{
+		"echasnovski/mini.starter",
+		version = false,
+		event = "VimEnter",
+		opts = {
+			header = function()
+				local version = vim.version()
+				return "NVIM v" .. version.major .. "." .. version.minor .. "." .. version.patch
+			end,
+			items = {
+				{ name = "SF Files", action = "lua require('mini.pick').builtin.files()", section = "Search" },
+				{ name = "GF Git files", action = "lua require('mini.extra').pickers.git_files()", section = "Search" },
+				{ name = "SR Ripgrep", action = "lua require('mini.pick').builtin.grep_live()", section = "Search" },
+
+				{ name = "L Lazy", action = "Lazy", section = "Menus" },
+				{ name = "M Mason", action = "Mason", section = "Menus" },
+				{ name = "GG lazygit", action = "LazyGit", section = "Menus" },
+
+				{ name = "E New buffer", action = "enew", section = "Actions" },
+				{ name = "N File browser", action = "lua MiniFiles.open()", section = "Actions" },
+				{ name = "Q Quit Neovim", action = "qall", section = "Actions" },
+			},
+			footer = function()
+				local stats = require("lazy").stats()
+				return "Loaded "
+					.. stats.loaded
+					.. "/"
+					.. stats.count
+					.. " packages in "
+					.. math.floor(stats.startuptime)
+					.. "ms"
+			end,
+		},
+		config = function(_, opts)
+			local starter = require("mini.starter")
+			opts = opts or {}
+			opts.items = opts.items or {}
+			opts.query_updaters = opts.query_updaters or ""
+
+			for _, item in ipairs(opts.items) do
+				local hotkey = string.match(item.name, "[^%s]+"):lower()
+				opts.query_updaters = opts.query_updaters .. hotkey
+			end
+
+			starter.setup(opts)
+			vim.api.nvim_create_autocmd("User", {
+				pattern = "VeryLazyStarter",
+				callback = function()
+					require("mini.starter").refresh()
+				end,
+			})
+		end,
+	},
+
+	-- Indent lines
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		event = "UIEnter",
+		event = { "VeryLazyFile" },
 		opts = {
 			indent = {
 				char = "│",
@@ -20,9 +76,10 @@ return {
 		main = "ibl",
 	},
 
+	-- Status line
 	{
 		"nvim-lualine/lualine.nvim",
-		event = "UIEnter",
+		event = "VeryLazy",
 		dependencies = { "nvim-tree/nvim-web-devicons", config = true },
 		opts = {
 			options = {
@@ -88,9 +145,10 @@ return {
 		},
 	},
 
+	-- Automatically highlight patterns
 	{
 		"echasnovski/mini.hipatterns",
-		event = "UIEnter",
+		event = { "VeryLazyFile" },
 		version = false,
 		opts = {
 			highlighters = {

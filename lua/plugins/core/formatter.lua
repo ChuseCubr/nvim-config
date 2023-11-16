@@ -6,7 +6,7 @@ return {
 			-- Tools installer (dap, linter, formatter)
 			{
 				"WhoIsSethDaniel/mason-tool-installer.nvim",
-				event = "UIEnter",
+				event = { "VeryLazyFile" },
 				opts = function(_, opts)
 					opts = opts or {}
 					opts.ensure_installed = opts.ensure_installed or {}
@@ -18,16 +18,26 @@ return {
 					mason_tool_installer.run_on_start()
 				end,
 			},
+
+			-- Keymap hints (alternative to `folke/which-key.nvim`)
+			{
+				"echasnovski/mini.clue",
+				opts = function(_, opts)
+					opts = opts or {}
+					opts.clues = opts.clues or {}
+					vim.list_extend(opts.clues, {
+						{ mode = "n", keys = "<leader>c", desc = "[C]ode" },
+					})
+				end,
+			},
 		},
-		keys = { "<leader>" },
+		keys = {
+			{ "<leader>cf", require("conform").format, desc = "[F]ormat" },
+		},
 		opts = {
 			formatters_by_ft = {
 				lua = { "stylua" },
 			},
 		},
-		config = function(_, opts)
-			require("conform").setup(opts)
-			vim.keymap.set("n", "<leader>cf", require("conform").format, { desc = "[F]ormat" })
-		end,
 	},
 }

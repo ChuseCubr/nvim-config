@@ -1,7 +1,21 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		event = "UIEnter",
+		event = { "VeryLazyFile" },
+		cmd = {
+			"Mason",
+			"MasonLog",
+			"MasonUpdate",
+			"MasonInstall",
+			"MasonUninstall",
+			"MasonToolsUpdate",
+			"MasonToolsInstall",
+			"MasonToolsUninstall",
+			"LspInfo",
+			"LspLog",
+			"LspInstall",
+			"LspUninstall",
+		},
 		dependencies = {
 			-- LSP installer and configurer
 			"williamboman/mason.nvim",
@@ -92,6 +106,26 @@ return {
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
+			local incremental_sync = true
+			local flags
+			if incremental_sync then
+				flags = {}
+
+				-- I wish I didn't have to do this,
+				-- but some lsps' incremental sync suck ass for me
+				vim.api.nvim_create_autocmd("BufWritePost", {
+					group = vim.api.nvim_create_augroup("chuse_reload_on_save", { clear = true }),
+					callback = function()
+						vim.cmd("e")
+					end,
+				})
+			else
+				flags = {
+					allow_incremental_sync = false,
+					debounce_text_changes = 500,
+				}
+			end
+
 			mason_lspconfig.setup_handlers({
 				function(server_name)
 					require("lspconfig")[server_name].setup({
@@ -99,6 +133,7 @@ return {
 						on_attach = on_attach,
 						settings = opts.servers[server_name],
 						filetypes = (opts.servers[server_name] or {}).filetypes,
+						flags = flags,
 					})
 				end,
 			})
