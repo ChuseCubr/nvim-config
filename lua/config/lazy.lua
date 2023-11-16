@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 -- utils for custom event handling
 ---@param handler LazyEventHandler
 ---@param event string
----@param event_table table<string>
+---@param event_table string | table<string>
 local function inject_event(handler, event, event_table)
 	local event_opts = { id = event, event = event_table }
 	handler.mappings[event] = event_opts
@@ -35,7 +35,6 @@ end
 -- inject custom events (see `config/autocmds/events.lua`)
 local event_handler = require("lazy.core.handler.event")
 
-inject_event(event_handler, "LazyFile", { "BufReadPost", "BufNewFile" })
 inject_user_event(event_handler, "VeryLazyFile")
 inject_user_event(event_handler, "VeryLazyStarter")
 
