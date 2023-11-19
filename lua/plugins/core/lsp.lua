@@ -67,6 +67,7 @@ return {
 
 				nmap("<leader>cr", vim.lsp.buf.rename, "[R]ename")
 				nmap("<leader>ca", vim.lsp.buf.code_action, "[A]ction")
+				nmap("<leader>cF", vim.lsp.buf.format, "[F]ormat (LSP)")
 
 				nmap("gd", pick("definition"), "Definition")
 				nmap("gr", pick("references"), "References")
@@ -106,7 +107,7 @@ return {
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-			local incremental_sync = true
+			local incremental_sync = false
 			local flags
 			if incremental_sync then
 				flags = {}
