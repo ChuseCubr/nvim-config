@@ -16,3 +16,5 @@ for _, v in ipairs(templates) do
 	v = vim.fn.fnamemodify(v, ":t")
 	create_template_autocmd(v)
 end
+
+create_template_autocmd("Makefile", "Makefile")
