@@ -1,9 +1,9 @@
 local template_path = vim.fn.stdpath("config") .. "/templates"
 
-vim.api.nvim_create_augroup("Templates", { clear = true })
+local group = vim.api.nvim_create_augroup("Templates", { clear = true })
 local function create_template_autocmd(template, pattern)
 	vim.api.nvim_create_autocmd("BufNewFile", {
-		group = "Templates",
+		group = group,
 		pattern = pattern or ("*." .. vim.fn.fnamemodify(template, ":e")),
 		callback = function(ev)
 			vim.api.nvim_buf_set_lines(ev.buf, 0, -1, false, vim.fn.readfile(template_path .. "/" .. template))

@@ -5,7 +5,7 @@ return {
 		opts = function(_, opts)
 			opts = opts or {}
 			opts.ensure_installed = opts.ensure_installed or {}
-			table.insert(opts.ensure_installed, "c")
+			table.insert(opts.ensure_installed, "go")
 		end,
 	},
 
@@ -14,7 +14,7 @@ return {
 		optional = true,
 		opts = {
 			servers = {
-				clangd = {},
+				gopls = {},
 			},
 		},
 	},
