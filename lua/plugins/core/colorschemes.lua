@@ -12,7 +12,7 @@ return {
 		"gbprod/nord.nvim",
 		lazy = false,
 		config = function()
-		-- 	vim.cmd.colorscheme("nord")
+			-- 	vim.cmd.colorscheme("nord")
 		end,
 	},
 

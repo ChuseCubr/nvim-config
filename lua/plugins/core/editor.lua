@@ -81,7 +81,7 @@ return {
 					desc = "Toggle dotfiles",
 				})
 
-				vim.keymap.set("n", "gs", system_open, {
+				vim.keymap.set("n", "gx", system_open, {
 					buffer = buf_id,
 					desc = "Open with system default",
 				})

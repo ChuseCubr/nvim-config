@@ -10,17 +10,53 @@ return {
 				return "NVIM v" .. version.major .. "." .. version.minor .. "." .. version.patch
 			end,
 			items = {
-				{ name = "SF Files", action = "lua require('mini.pick').builtin.files()", section = "Search" },
-				{ name = "GF Git files", action = "lua require('mini.extra').pickers.git_files()", section = "Search" },
-				{ name = "SR Ripgrep", action = "lua require('mini.pick').builtin.grep_live()", section = "Search" },
+				{
+					name = "SF Files",
+					action = "lua require('mini.pick').builtin.files()",
+					section = "Search",
+				},
+				{
+					name = "GF Git files",
+					action = "lua require('mini.extra').pickers.git_files()",
+					section = "Search",
+				},
+				{
+					name = "SR Ripgrep",
+					action = "lua require('mini.pick').builtin.grep_live()",
+					section = "Search",
+				},
 
-				{ name = "L Lazy", action = "Lazy", section = "Menus" },
-				{ name = "M Mason", action = "Mason", section = "Menus" },
-				{ name = "GG lazygit", action = "LazyGit", section = "Menus" },
+				{
+					name = "L Lazy",
+					action = "Lazy",
+					section = "Menus",
+				},
+				{
+					name = "M Mason",
+					action = "Mason",
+					section = "Menus",
+				},
+				{
+					name = "GG lazygit",
+					action = "LazyGit",
+					section = "Menus",
+				},
 
-				{ name = "E New buffer", action = "enew", section = "Actions" },
-				{ name = "N File browser", action = "lua MiniFiles.open()", section = "Actions" },
-				{ name = "Q Quit Neovim", action = "qall", section = "Actions" },
+				{
+					name = "E New buffer",
+					action = "enew",
+					section = "Actions",
+				},
+				{
+					name = "N File browser",
+					action = "lua MiniFiles.open()",
+					section = "Actions",
+				},
+				{
+					name = "Q Quit Neovim",
+					action = "qall",
+					section = "Actions",
+				},
 			},
 			footer = function()
 				local stats = require("lazy").stats()
