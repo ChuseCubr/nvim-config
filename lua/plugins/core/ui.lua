@@ -21,7 +21,7 @@ return {
 					section = "Search",
 				},
 				{
-					name = "SR Ripgrep",
+					name = "SG Grep",
 					action = "lua require('mini.pick').builtin.grep_live()",
 					section = "Search",
 				},

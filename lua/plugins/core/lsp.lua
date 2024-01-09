@@ -21,8 +21,8 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 
-			-- Lsp progress info
-			{ "j-hui/fidget.nvim", tag = "legacy", config = true },
+			-- -- Lsp progress info
+			-- { "j-hui/fidget.nvim", tag = "legacy", config = true },
 
 			-- Neovim-specific lua_ls configuration
 			"folke/neodev.nvim",

@@ -40,6 +40,7 @@ inject_user_event(event_handler, "VeryLazyStarter")
 
 require("lazy").setup({
 	spec = {
+		{ import = "plugins/extras" },
 		{ import = "plugins/langs" },
 		{ import = "plugins/core" },
 	},
