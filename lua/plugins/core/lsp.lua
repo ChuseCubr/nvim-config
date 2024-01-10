@@ -129,11 +129,21 @@ return {
 
 			mason_lspconfig.setup_handlers({
 				function(server_name)
-					require("lspconfig")[server_name].setup({
+					if (opts.servers[server_name] or {}).custom_setup_handler == nil then
+						require("lspconfig")[server_name].setup({
+							capabilities = capabilities,
+							on_attach = on_attach,
+							settings = opts.servers[server_name],
+							filetypes = (opts.servers[server_name] or {}).filetypes,
+							flags = flags,
+						})
+
+						return
+					end
+
+					opts.servers[server_name].custom_setup_handler({
 						capabilities = capabilities,
 						on_attach = on_attach,
-						settings = opts.servers[server_name],
-						filetypes = (opts.servers[server_name] or {}).filetypes,
 						flags = flags,
 					})
 				end,

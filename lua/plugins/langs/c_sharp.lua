@@ -15,11 +15,22 @@ return {
 		opts = function(_, opts)
 			opts = opts or {}
 			opts.servers = opts.servers or {}
-			opts.servers.omnisharp = {
-				enable_roslyn_analyzers = true,
-				organize_imports_on_format = true,
-				enable_import_completion = true,
-			}
+			opts.servers.omnisharp = {}
+
+			-- omnisharp is weird, gotta use a custom handler
+			opts.servers.omnisharp.custom_setup_handler = function(setup_opts)
+				require("lspconfig").omnisharp.setup({
+					capabilities = setup_opts.capabilities,
+					on_attach = setup_opts.on_attach,
+					flags = setup_opts.flags,
+
+					-- for some reason, settings weren't recognized when under `settings`
+					-- so take 'em out
+					enable_roslyn_analyzers = true,
+					organize_imports_on_format = true,
+					enable_import_completion = true,
+				})
+			end
 		end,
 	},
 

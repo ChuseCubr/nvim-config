@@ -32,7 +32,13 @@ return {
 			},
 		},
 		keys = {
-			{ "<leader>cf", require("conform").format, desc = "[F]ormat" },
+			{
+				"<leader>cf",
+				function()
+					require("conform").format({ timeout_ms = 1000 })
+				end,
+				desc = "[F]ormat",
+			},
 		},
 		opts = {
 			formatters_by_ft = {
