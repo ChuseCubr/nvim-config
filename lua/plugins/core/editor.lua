@@ -151,8 +151,6 @@ return {
 				extra.list({ scope = "location" })
 			end, { desc = "Location" })
 
-			vim.api.nvim_set_hl(0, "MiniPickMatchCurrent", { link = "Visual" })
-			vim.api.nvim_set_hl(0, "MiniPickMatchMarked", { link = "Cursor" })
 			require("mini.pick").setup(opts)
 		end,
 	},
