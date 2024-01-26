@@ -30,4 +30,30 @@ return {
 			-- vim.cmd.colorscheme("gruvbox")
 		end,
 	},
+
+	{
+		"Mofiqul/vscode.nvim",
+		lazy = false,
+		config = function()
+			local vscode = require("vscode")
+			vscode.setup({ italic_comments = true })
+			-- vscode.load("dark")
+		end,
+	},
+
+	{
+		"projekt0n/github-nvim-theme",
+		lazy = false,
+		config = function()
+			require("github-theme").setup({
+				options = {
+					styles = {
+						comments = "italic",
+					},
+				}
+			})
+
+			-- vim.cmd.colorscheme("github_dark")
+		end,
+	},
 }
