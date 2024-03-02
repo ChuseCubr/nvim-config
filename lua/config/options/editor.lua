@@ -23,5 +23,7 @@ vim.o.timeoutlen = 300
 vim.o.mouse = "a"
 vim.o.scrolloff = 5
 
+vim.o.linebreak = true
+
 vim.o.completeopt = "menu,menuone,preview,noinsert,noselect"
 vim.g.python3_host_prog = "C:/Users/Chase/scoop/apps/python/current/python.exe"

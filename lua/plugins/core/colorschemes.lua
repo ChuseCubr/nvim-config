@@ -50,7 +50,7 @@ return {
 					styles = {
 						comments = "italic",
 					},
-				}
+				},
 			})
 
 			-- vim.cmd.colorscheme("github_dark")

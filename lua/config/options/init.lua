@@ -7,7 +7,3 @@ if is_wsl then
 else
 	require("config.options.windows")
 end
-
-if vim.g.neovide then
-	require("config.options.neovide")
-end

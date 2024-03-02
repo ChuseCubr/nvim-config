@@ -11,8 +11,10 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- center cursor
+-- still cursor on J
 vim.keymap.set("n", "J", "mzJ`z")
+
+-- center cursor
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
@@ -21,7 +23,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- void register
 vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP', { desc = "[P]aste from system" })
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "[y]ank to system" })
-vim.keymap.set({ "n", "v" }, "<leader>Y", '"+Y', { desc = "[Y]ank to system" })
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "[D]elete (no yank)" })
 
 -- diagnostics

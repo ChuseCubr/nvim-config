@@ -135,7 +135,7 @@ return {
 							on_attach = on_attach,
 							settings = opts.servers[server_name],
 							filetypes = (opts.servers[server_name] or {}).filetypes,
-							flags = flags,
+							-- flags = flags,
 						})
 
 						return
