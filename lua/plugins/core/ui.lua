@@ -193,7 +193,7 @@ return {
 				hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
 				todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
 				note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
-				trailspace = { pattern = "%f[%s]%s*$", group = "MiniHipatternsTrailspace" },
+				-- trailspace = { pattern = "%f[%s]%s*$", group = "MiniHipatternsTrailspace" },
 			},
 		},
 		config = function(_, opts)
@@ -221,10 +221,10 @@ return {
 				fg = vim.api.nvim_get_hl(0, { name = "Normal" }).bg,
 			})
 
-			vim.api.nvim_set_hl(0, "MiniHipatternsTrailspace", {
-				bg = vim.api.nvim_get_hl(0, { name = "DiagnosticError" }).fg,
-				fg = vim.api.nvim_get_hl(0, { name = "Normal" }).bg,
-			})
+			-- vim.api.nvim_set_hl(0, "MiniHipatternsTrailspace", {
+			-- 	bg = vim.api.nvim_get_hl(0, { name = "DiagnosticError" }).fg,
+			-- 	fg = vim.api.nvim_get_hl(0, { name = "Normal" }).bg,
+			-- })
 
 			require("mini.hipatterns").setup(opts)
 		end,

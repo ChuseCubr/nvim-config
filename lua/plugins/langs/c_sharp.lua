@@ -17,16 +17,7 @@ return {
 		opts = function(_, opts)
 			opts = opts or {}
 			opts.servers = opts.servers or {}
-			opts.servers.omnisharp = {
-				handlers = {
-					["textDocument/definition"] = function(...)
-						return require("omnisharp_extended").handler(...)
-					end,
-				},
-				enable_roslyn_analyzers = true,
-				organize_imports_on_format = true,
-				enable_import_completion = true,
-			}
+			opts.servers.omnisharp = {}
 
 			local path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason") .. "/packages/omnisharp/libexec/Omnisharp.dll"
 
@@ -40,6 +31,14 @@ return {
 					-- for some reason, settings weren't recognized when under `settings`
 					-- so take 'em out
 					cmd = { "dotnet", path },
+					enable_roslyn_analyzers = true,
+					organize_imports_on_format = true,
+					enable_import_completion = true,
+					handlers = {
+						["textDocument/definition"] = function(...)
+							return require("omnisharp_extended").handler(...)
+						end,
+					},
 				})
 			end
 		end,
