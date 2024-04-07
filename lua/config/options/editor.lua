@@ -13,6 +13,9 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.hlsearch = false
 
+vim.o.wildmenu = true
+vim.o.path = vim.o.path .. ",**,"
+
 -- indent options
 vim.o.breakindent = true
 vim.o.expandtab = false

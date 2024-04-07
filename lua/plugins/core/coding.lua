@@ -42,6 +42,11 @@ return {
 				completion = {
 					completeopt = "menu,menuone,preview,noinsert,noselect",
 				},
+				window = {
+					completion = {
+						winhighlight="Normal:CmpMenu,FloatBorder:CmpMenu"
+					}
+				},
 				snippet = {
 					expand = function(args)
 						luasnip.lsp_expand(args.body)
