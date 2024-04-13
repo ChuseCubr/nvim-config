@@ -6,7 +6,7 @@ return {
 			-- Tools installer (dap, linter, formatter)
 			{
 				"WhoIsSethDaniel/mason-tool-installer.nvim",
-				event = { "VeryLazyFile" },
+				event = { "User VeryLazyFile" },
 				opts = function(_, opts)
 					opts = opts or {}
 					opts.ensure_installed = opts.ensure_installed or {}

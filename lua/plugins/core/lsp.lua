@@ -1,7 +1,7 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		event = { "VeryLazyFile" },
+		event = { "User VeryLazyFile" },
 		cmd = {
 			"Mason",
 			"MasonLog",

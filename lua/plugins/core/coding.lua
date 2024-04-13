@@ -1,6 +1,6 @@
 return {
 	-- Better text objects
-	{ "echasnovski/mini.ai", event = { "VeryLazyFile" }, config = true },
+	{ "echasnovski/mini.ai", event = { "User VeryLazyFile" }, config = true },
 
 	-- Commenter
 	{

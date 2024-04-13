@@ -93,7 +93,7 @@ return {
 	-- Indent lines
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		event = { "VeryLazyFile" },
+		event = { "User VeryLazyFile" },
 		opts = {
 			indent = {
 				char = "│",
@@ -184,7 +184,7 @@ return {
 	-- Automatically highlight patterns
 	{
 		"echasnovski/mini.hipatterns",
-		event = { "VeryLazyFile" },
+		event = { "User VeryLazyFile" },
 		version = false,
 		opts = {
 			highlighters = {
@@ -203,22 +203,22 @@ return {
 
 			vim.api.nvim_set_hl(0, "MiniHipatternsFixme", {
 				bg = vim.api.nvim_get_hl(0, { name = "DiagnosticError" }).fg,
-				fg = vim.api.nvim_get_hl(0, { name = "Normal" }).bg,
+				fg = vim.api.nvim_get_hl(0, { name = "Pmenu" }).bg,
 			})
 
 			vim.api.nvim_set_hl(0, "MiniHipatternsHack", {
 				bg = vim.api.nvim_get_hl(0, { name = "DiagnosticWarn" }).fg,
-				fg = vim.api.nvim_get_hl(0, { name = "Normal" }).bg,
+				fg = vim.api.nvim_get_hl(0, { name = "Pmenu" }).bg,
 			})
 
 			vim.api.nvim_set_hl(0, "MiniHipatternsTodo", {
 				bg = vim.api.nvim_get_hl(0, { name = "DiagnosticInfo" }).fg,
-				fg = vim.api.nvim_get_hl(0, { name = "Normal" }).bg,
+				fg = vim.api.nvim_get_hl(0, { name = "Pmenu" }).bg,
 			})
 
 			vim.api.nvim_set_hl(0, "MiniHipatternsNote", {
 				bg = vim.api.nvim_get_hl(0, { name = "DiagnosticHint" }).fg,
-				fg = vim.api.nvim_get_hl(0, { name = "Normal" }).bg,
+				fg = vim.api.nvim_get_hl(0, { name = "Pmenu" }).bg,
 			})
 
 			-- vim.api.nvim_set_hl(0, "MiniHipatternsTrailspace", {

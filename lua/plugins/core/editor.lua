@@ -1,6 +1,6 @@
 return {
 	-- Automatic indent settings detection
-	{ "tpope/vim-sleuth", event = { "VeryLazyFile" } },
+	{ "tpope/vim-sleuth", event = { "User VeryLazyFile" } },
 
 	-- File browser
 	{
@@ -232,7 +232,7 @@ return {
 	-- Adds git related signs to the gutter, as well as utilities for managing changes
 	{
 		"lewis6991/gitsigns.nvim",
-		event = { "VeryLazyFile" },
+		event = { "User VeryLazyFile" },
 		dependencies = {
 			{
 				"echasnovski/mini.clue",
