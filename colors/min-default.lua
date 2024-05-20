@@ -1,3 +1,4 @@
+vim.cmd.colorscheme("default")
 vim.g.colors_name = "min-default"
 
 -- resets
