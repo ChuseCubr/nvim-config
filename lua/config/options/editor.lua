@@ -14,7 +14,7 @@ vim.o.smartcase = true
 vim.o.hlsearch = false
 
 vim.o.wildmenu = true
-vim.o.path = vim.o.path .. ",**,"
+vim.o.path = vim.o.path .. ",**"
 
 -- indent options
 vim.o.breakindent = true
@@ -24,7 +24,6 @@ vim.o.tabstop = 2
 
 vim.o.timeoutlen = 300
 vim.o.mouse = "a"
-vim.o.scrolloff = 5
 
 vim.o.linebreak = true
 

@@ -1,6 +1,7 @@
 return {
 	{
 		"rose-pine/neovim",
+		optional = true,
 		lazy = false,
 		name = "rose-pine",
 		config = function()
@@ -15,6 +16,7 @@ return {
 
 	{
 		"gbprod/nord.nvim",
+		optional = true,
 		lazy = false,
 		config = function()
 			-- vim.cmd.colorscheme("nord")
@@ -23,6 +25,7 @@ return {
 
 	{
 		"ellisonleao/gruvbox.nvim",
+		optional = true,
 		lazy = false,
 		opts = {
 			contrast = "hard",
@@ -38,6 +41,7 @@ return {
 
 	{
 		"Mofiqul/vscode.nvim",
+		optional = true,
 		lazy = false,
 		config = function()
 			local vscode = require("vscode")
@@ -48,6 +52,7 @@ return {
 
 	{
 		"projekt0n/github-nvim-theme",
+		optional = true,
 		lazy = false,
 		config = function()
 			require("github-theme").setup({
@@ -63,6 +68,7 @@ return {
 
 	{
 		"themercorp/themer.lua",
+		optional = true,
 		lazy = false,
 		opts = function()
 			local base = "#191724"
@@ -135,6 +141,7 @@ return {
 						rose_pine = {
 							base = {
 								CmpMenu = { bg = "none" },
+								ColorColumn = { bg = highlight_med },
 								DiagnosticUnnecessary = { fg = muted },
 								IncSearch = { fg = gold, bg = base },
 								MatchParen = { fg = text, bg = pine },
@@ -148,6 +155,10 @@ return {
 					},
 				},
 			}
+		end,
+		config = function(_, opts)
+			require("themer").setup(opts)
+			vim.cmd.colorscheme("default")
 		end,
 	},
 }

@@ -5,6 +5,7 @@ return {
 		opts = function(_, opts)
 			opts = opts or {}
 			opts.ensure_installed = opts.ensure_installed or {}
+			vim.g.zig_fmt_autosave = false
 			table.insert(opts.ensure_installed, "zig")
 		end,
 	},
@@ -14,7 +15,7 @@ return {
 		optional = true,
 		opts = {
 			servers = {
-				zls = {},
+				zls = { enable_autofix = false },
 			},
 		},
 	},

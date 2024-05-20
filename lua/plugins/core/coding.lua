@@ -2,13 +2,6 @@ return {
 	-- Better text objects
 	{ "echasnovski/mini.ai", event = { "User VeryLazyFile" }, config = true },
 
-	-- Commenter
-	{
-		"echasnovski/mini.comment",
-		config = true,
-		keys = { { "gc", mode = { "n", "x" }, desc = "Comment" } },
-	},
-
 	-- Autocompletion
 	{
 		"hrsh7th/nvim-cmp",

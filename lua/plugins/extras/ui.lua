@@ -14,7 +14,7 @@ return {
 	-- Animations (for accessibility)
 	{
 		"echasnovski/mini.animate",
-	  enabled = false,
+	  optional = true,
 		event = "VeryLazy",
 		version = false,
 		opts = function()

@@ -22,6 +22,7 @@ return {
 			-- Keymap hints (alternative to `folke/which-key.nvim`)
 			{
 				"echasnovski/mini.clue",
+				optional = true,
 				opts = function(_, opts)
 					opts = opts or {}
 					opts.clues = opts.clues or {}

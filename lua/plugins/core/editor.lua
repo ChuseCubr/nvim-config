@@ -102,6 +102,7 @@ return {
 			"echasnovski/mini.extra",
 			{
 				"echasnovski/mini.clue",
+				optional = true,
 				opts = function(_, opts)
 					opts = opts or {}
 					opts.clues = opts.clues or {}
@@ -236,6 +237,7 @@ return {
 		dependencies = {
 			{
 				"echasnovski/mini.clue",
+				optional = true,
 				opts = function(_, opts)
 					opts = opts or {}
 					opts.clues = opts.clues or {}
