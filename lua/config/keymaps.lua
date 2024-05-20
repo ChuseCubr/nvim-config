@@ -27,8 +27,6 @@ vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "[D]elete (no yank)" }
 
 -- diagnostics
 vim.keymap.set("n", "<space>ce", vim.diagnostic.open_float, { desc = "[E]rrors" })
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 vim.keymap.set("n", "<space>cl", vim.diagnostic.setloclist, { desc = "To [L]ocation list" })
 vim.keymap.set("n", "<space>cq", vim.diagnostic.setqflist, { desc = "To [Q]uickfix list" })
 
