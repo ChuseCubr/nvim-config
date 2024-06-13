@@ -27,5 +27,8 @@ vim.o.mouse = "a"
 
 vim.o.linebreak = true
 
+vim.o.splitbelow = true
+vim.o.splitright = true
+
 vim.o.completeopt = "menu,menuone,preview,noinsert,noselect"
 vim.g.python3_host_prog = "C:/Users/Chase/scoop/apps/python/current/python.exe"
