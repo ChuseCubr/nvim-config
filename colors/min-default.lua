@@ -15,14 +15,14 @@ vim.api.nvim_set_hl(0, "MatchParen", { fg = "NvimLightCyan", bg = "NvimDarkBlue"
 vim.api.nvim_set_hl(0, "Keyword", { fg = "NvimLightBlue" })
 
 -- neovide term colors
-vim.g.terminal_color_0 = "NvimLightGray2"
+vim.g.terminal_color_0 = "NvimLightGray4"
 vim.g.terminal_color_1 = "NvimLightRed"
 vim.g.terminal_color_2 = "NvimLightGreen"
 vim.g.terminal_color_3 = "NvimLightYellow"
 vim.g.terminal_color_4 = "NvimLightBlue"
 vim.g.terminal_color_5 = "NvimLightMagenta"
 vim.g.terminal_color_6 = "NvimLightCyan"
-vim.g.terminal_color_7 = "NvimLightGray4"
+vim.g.terminal_color_7 = "NvimLightGray2"
 
 vim.g.terminal_color_8 = vim.g.terminal_color_0
 vim.g.terminal_color_9 = vim.g.terminal_color_1
