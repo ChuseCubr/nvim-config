@@ -5,20 +5,20 @@ vim.g.colors_name = "min-default"
 local prefix = vim.o.background == "dark" and "NvimLight" or "NvimDark"
 local inverted_prefix = vim.o.background == "dark" and "NvimDark" or "NvimLight"
 
-local function set_color(group, fg, bg)
+local function set_color(group, fg)
 	if vim.o.background == "dark" then
 		fg = "NvimLight" .. fg
-		vim.api.nvim_set_hl(0, group, { fg = fg, bg = bg })
+		vim.api.nvim_set_hl(0, group, { fg = fg })
 		return
 	end
 
-	fg = "NvimLight" .. fg
-	bg = bg or "NvimDarkGray2"
+	fg = inverted_prefix .. fg
+	local bg = prefix .. "Gray2"
 	vim.api.nvim_set_hl(0, group, { fg = bg, bg = fg })
 end
 
 local function base_color(groups)
-	local opts = { fg = prefix .. "Gray2", bold = true }
+	local opts = { fg = prefix .. "Gray2", bold = vim.o.background == "light" and true or false }
 
 	if type(groups) == "string" then
 		vim.api.nvim_set_hl(0, groups, opts)
@@ -77,25 +77,27 @@ local dimmed = {
 dimmed_color(dimmed)
 
 -- highlights
+set_color("Comment", "Yellow")
 set_color("Keyword", "Blue")
 
 set_color("String", "Green")
 set_color("Character", "Green")
 set_color("SpecialChar", "Green")
 
-set_color("MiniStarterItemPrefix", "Yellow")
-set_color("MiniStarterQuery", "Green")
-set_color("MiniStarterCurrent", "Blue")
-set_color("MiniStarterInactive", "Gray2", "Gray2")
-
 set_color("DiagnosticError", "Red")
 set_color("DiagnosticWarn", "Yellow")
 set_color("DiagnosticInfo", "Cyan")
-set_color("Todo", "Magenta")
 
 set_color("Added", "Green")
 set_color("Removed", "Red")
 set_color("Changed", "Yellow")
+
+set_color("Todo", "Magenta")
+
+set_color("MiniStarterItemPrefix", "Yellow")
+set_color("MiniStarterQuery", "Green")
+set_color("MiniStarterCurrent", "Blue")
+set_color("MiniStarterInactive", "Gray2")
 
 -- manual sets
 vim.api.nvim_set_hl(0, "MatchParen", { fg = prefix .. "Cyan", bg = inverted_prefix .. "Blue" })

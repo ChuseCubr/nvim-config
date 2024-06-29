@@ -45,7 +45,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 -- transparent background
-local transparent_background = true
+local transparent_background = false
 local old_normal_hl = vim.api.nvim_get_hl(0, { name = "Normal" })
 
 function _G.TransparentBackgroundEnable()

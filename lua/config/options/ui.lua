@@ -43,6 +43,7 @@ for type, icon in pairs(signs) do
 end
 
 -- custom colorscheme
+vim.o.background = "light"
 vim.cmd.colorscheme("min-default")
 
 -- gui
