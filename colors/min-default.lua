@@ -42,55 +42,63 @@ end
 
 -- resets
 local base = {
+	"Boolean",
+	"Float",
 	"Function",
 	"Identifier",
-	"Boolean",
-	"Number",
+	"Label",
 	"Macro",
+	"Number",
 	"Tag",
+	"@attribute.builtin",
+	"@constant.builtin",
+	"@function.builtin",
+	"@tag.builtin",
 	"@variable",
-	"@label",
+	"@variable.builtin",
+	"@variable.parameter.builtin",
 }
 
 base_color(base)
 
 -- dim
 local dimmed = {
-	"Type",
 	"Delimiter",
-	"Special",
 	"Operator",
-	"@module",
+	"Special",
+	"Structure",
+	"Type",
 }
 
 dimmed_color(dimmed)
 
 -- highlights
-
 set_color("Keyword", "Blue")
 set_color("String", "Green")
+set_color("Character", "Green")
+set_color("SpecialChar", "Green")
 
 set_color("DiagnosticError", "Red")
 set_color("DiagnosticWarn", "Yellow")
 set_color("DiagnosticInfo", "Cyan")
 set_color("Todo", "Magenta")
 
--- manual sets
-vim.api.nvim_set_hl(0, "Added", { fg = prefix .. "Green" })
-vim.api.nvim_set_hl(0, "Removed", { fg = prefix .. "Red" })
-vim.api.nvim_set_hl(0, "Changed", { fg = prefix .. "Yellow" })
+set_color("Added", "Green")
+set_color("Removed", "Red")
+set_color("Changed", "Yellow")
 
+-- manual sets
 vim.api.nvim_set_hl(0, "MatchParen", { fg = prefix .. "Cyan", bg = inverted_prefix .. "Blue" })
 
 -- neovide term colors
-vim.g.terminal_color_0 = "NvimLightGray4"
-vim.g.terminal_color_1 = "NvimLightRed"
-vim.g.terminal_color_2 = "NvimLightGreen"
-vim.g.terminal_color_3 = "NvimLightYellow"
-vim.g.terminal_color_4 = "NvimLightBlue"
-vim.g.terminal_color_5 = "NvimLightMagenta"
-vim.g.terminal_color_6 = "NvimLightCyan"
-vim.g.terminal_color_7 = "NvimLightGray2"
+vim.g.terminal_color_0 = prefix .. "Gray4"
+vim.g.terminal_color_1 = prefix .. "Red"
+vim.g.terminal_color_2 = prefix .. "Green"
+vim.g.terminal_color_3 = prefix .. "Yellow"
+vim.g.terminal_color_4 = prefix .. "Blue"
+vim.g.terminal_color_5 = prefix .. "Magenta"
+vim.g.terminal_color_6 = prefix .. "Cyan"
+vim.g.terminal_color_7 = prefix .. "Gray2"
 
 vim.g.terminal_color_8 = vim.g.terminal_color_0
 vim.g.terminal_color_9 = vim.g.terminal_color_1
