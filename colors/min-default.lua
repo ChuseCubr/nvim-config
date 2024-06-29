@@ -1,42 +1,45 @@
+vim.cmd("hi clear")
+vim.cmd("syntax reset")
 vim.g.colors_name = "min-default"
 
 local prefix = vim.o.background == "dark" and "NvimLight" or "NvimDark"
 local inverted_prefix = vim.o.background == "dark" and "NvimDark" or "NvimLight"
 
-local function set_color(group, fg)
+local function set_color(group, fg, bg)
 	if vim.o.background == "dark" then
 		fg = "NvimLight" .. fg
-		vim.api.nvim_set_hl(0, group, { fg = fg })
+		vim.api.nvim_set_hl(0, group, { fg = fg, bg = bg })
 		return
 	end
 
-	local bg = "NvimLight" .. fg
-	vim.api.nvim_set_hl(0, group, { fg = "NvimDarkGray2", bg = bg })
+	fg = "NvimLight" .. fg
+	bg = bg or "NvimDarkGray2"
+	vim.api.nvim_set_hl(0, group, { fg = bg, bg = fg })
 end
 
 local function base_color(groups)
-	local color = prefix .. "Gray2"
+	local opts = { fg = prefix .. "Gray2", bold = true }
 
 	if type(groups) == "string" then
-		vim.api.nvim_set_hl(0, groups, { fg = color, bold = true })
+		vim.api.nvim_set_hl(0, groups, opts)
 		return
 	end
 
 	for _, group in ipairs(groups) do
-		vim.api.nvim_set_hl(0, group, { fg = color, bold = true })
+		vim.api.nvim_set_hl(0, group, opts)
 	end
 end
 
 local function dimmed_color(groups)
-	local color = prefix .. "Gray4"
+	local opts = { fg = prefix .. "Gray4" }
 
 	if type(groups) == "string" then
-		vim.api.nvim_set_hl(0, groups, { fg = color })
+		vim.api.nvim_set_hl(0, groups, opts)
 		return
 	end
 
 	for _, group in ipairs(groups) do
-		vim.api.nvim_set_hl(0, group, { fg = color })
+		vim.api.nvim_set_hl(0, group, opts)
 	end
 end
 
@@ -57,6 +60,7 @@ local base = {
 	"@variable",
 	"@variable.builtin",
 	"@variable.parameter.builtin",
+	"MiniStarterItem",
 }
 
 base_color(base)
@@ -74,9 +78,15 @@ dimmed_color(dimmed)
 
 -- highlights
 set_color("Keyword", "Blue")
+
 set_color("String", "Green")
 set_color("Character", "Green")
 set_color("SpecialChar", "Green")
+
+set_color("MiniStarterItemPrefix", "Yellow")
+set_color("MiniStarterQuery", "Green")
+set_color("MiniStarterCurrent", "Blue")
+set_color("MiniStarterInactive", "Gray2", "Gray2")
 
 set_color("DiagnosticError", "Red")
 set_color("DiagnosticWarn", "Yellow")
