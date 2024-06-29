@@ -1,18 +1,86 @@
-vim.cmd("colorscheme default")
 vim.g.colors_name = "min-default"
 
+local prefix = vim.o.background == "dark" and "NvimLight" or "NvimDark"
+local inverted_prefix = vim.o.background == "dark" and "NvimDark" or "NvimLight"
+
+local function set_color(group, fg)
+	if vim.o.background == "dark" then
+		fg = "NvimLight" .. fg
+		vim.api.nvim_set_hl(0, group, { fg = fg })
+		return
+	end
+
+	local bg = "NvimLight" .. fg
+	vim.api.nvim_set_hl(0, group, { fg = "NvimDarkGray2", bg = bg })
+end
+
+local function base_color(groups)
+	local color = prefix .. "Gray2"
+
+	if type(groups) == "string" then
+		vim.api.nvim_set_hl(0, groups, { fg = color, bold = true })
+		return
+	end
+
+	for _, group in ipairs(groups) do
+		vim.api.nvim_set_hl(0, group, { fg = color, bold = true })
+	end
+end
+
+local function dimmed_color(groups)
+	local color = prefix .. "Gray4"
+
+	if type(groups) == "string" then
+		vim.api.nvim_set_hl(0, groups, { fg = color })
+		return
+	end
+
+	for _, group in ipairs(groups) do
+		vim.api.nvim_set_hl(0, group, { fg = color })
+	end
+end
+
 -- resets
-vim.api.nvim_set_hl(0, "Function", { fg = "NvimLightGray2" })
-vim.api.nvim_set_hl(0, "Identifier", { fg = "NvimLightGray2" })
+local base = {
+	"Function",
+	"Identifier",
+	"Boolean",
+	"Number",
+	"Macro",
+	"Tag",
+	"@variable",
+	"@label",
+}
+
+base_color(base)
 
 -- dim
-vim.api.nvim_set_hl(0, "Type", { fg = "NvimLightGray4" })
-vim.api.nvim_set_hl(0, "Delimiter", { fg = "NvimLightGray4" })
-vim.api.nvim_set_hl(0, "Special", { fg = "NvimLightGray4" })
+local dimmed = {
+	"Type",
+	"Delimiter",
+	"Special",
+	"Operator",
+	"@module",
+}
+
+dimmed_color(dimmed)
 
 -- highlights
-vim.api.nvim_set_hl(0, "MatchParen", { fg = "NvimLightCyan", bg = "NvimDarkBlue" })
-vim.api.nvim_set_hl(0, "Keyword", { fg = "NvimLightBlue" })
+
+set_color("Keyword", "Blue")
+set_color("String", "Green")
+
+set_color("DiagnosticError", "Red")
+set_color("DiagnosticWarn", "Yellow")
+set_color("DiagnosticInfo", "Cyan")
+set_color("Todo", "Magenta")
+
+-- manual sets
+vim.api.nvim_set_hl(0, "Added", { fg = prefix .. "Green" })
+vim.api.nvim_set_hl(0, "Removed", { fg = prefix .. "Red" })
+vim.api.nvim_set_hl(0, "Changed", { fg = prefix .. "Yellow" })
+
+vim.api.nvim_set_hl(0, "MatchParen", { fg = prefix .. "Cyan", bg = inverted_prefix .. "Blue" })
 
 -- neovide term colors
 vim.g.terminal_color_0 = "NvimLightGray4"

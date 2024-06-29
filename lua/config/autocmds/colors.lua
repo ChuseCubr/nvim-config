@@ -36,7 +36,11 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		if highlight_comments ~= true then
 			return
 		end
-		vim.api.nvim_set_hl(0, "Comment", { ctermfg = 11, fg = "NvimLightYellow" })
+		if vim.o.background == "dark" then
+			vim.api.nvim_set_hl(0, "Comment", { ctermfg = 11, fg = "NvimLightYellow" })
+		else
+			vim.api.nvim_set_hl(0, "Comment", { ctermfg = 0, ctermbg = 11, fg = "NvimDarkGray2", bg = "NvimLightYellow" })
+		end
 	end,
 })
 
