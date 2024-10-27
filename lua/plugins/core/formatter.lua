@@ -36,7 +36,10 @@ return {
 			{
 				"<leader>cf",
 				function()
-					require("conform").format({ timeout_ms = 1000 })
+					require("conform").format({
+						async = true,
+						timeout_ms = 5000,
+					})
 				end,
 				desc = "[F]ormat",
 			},

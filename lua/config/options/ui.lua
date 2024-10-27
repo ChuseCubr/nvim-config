@@ -10,8 +10,8 @@ vim.o.laststatus = 3
 vim.o.guicursor = "n-v-c-i:block"
 vim.o.colorcolumn = "80"
 
-vim.o.cursorline = false
-vim.o.cursorcolumn = false
+vim.o.cursorline = true
+vim.o.cursorcolumn = true
 
 -- gutter
 vim.wo.number = true
