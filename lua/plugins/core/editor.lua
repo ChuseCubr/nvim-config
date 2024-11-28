@@ -306,4 +306,17 @@ return {
 			{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "lazygit", silent = true },
 		},
 	},
+
+	-- git diff tool
+	{
+		"sindrets/diffview.nvim",
+		cmd = {
+			"DiffviewOpen",
+			"DiffviewFileHistory",
+			"DiffviewClose",
+			"DiffviewToggleFiles",
+			"DiffviewFocusFiles",
+			"DiffviewRefresh",
+		},
+	}
 }
