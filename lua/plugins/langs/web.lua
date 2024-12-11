@@ -10,6 +10,7 @@ return {
 				"css",
 				"javascript",
 				"typescript",
+				"http",
 			})
 		end,
 	},
@@ -22,6 +23,7 @@ return {
 				html = {},
 				cssls = {},
 				ts_ls = {},
+				tailwindcss = {},
 			},
 		},
 	},
@@ -51,5 +53,20 @@ return {
 				opts.formatters_by_ft[ft] = { "prettier" }
 			end
 		end,
+	},
+
+	{
+		"mistweaverco/kulala.nvim",
+		ft = "http",
+		opts = {
+			winbar = true,
+			default_winbar_panes = {
+				"body",
+				"headers",
+				"headers_body",
+				"script_output",
+				"stats",
+			},
+		},
 	},
 }
